@@ -54,21 +54,24 @@ books15 = Book(title="The Missing Girl",user_id=10,genre_id=10)
 
 all_books=""
 
-author1 = Author(name="Erin Morgenstern",book_id = 1)
-author2 = Author(name="Alex Michaelides",book_id = 2)
-author3 = Author(name="Andy Weir",book_id = 3)
-author4 = Author(name="Delia Owens",book_id = 4)
-author5 = Author(name="Madeline Miller",book_id = 5)
-author6 = Author(name="Taylor Jenkins Reid",book_id = 6)
-author7 = Author(name="James Clear",book_id = 7)
-author9 = Author(name="TJ Klune",book_id = 8)
-author10 = Author(name="",book_id = 1)
-author11 = Author(name="",book_id = 1)
-author12 = Author(name="",book_id = 1)
-author13 = Author(name="",book_id = 1)
-author14 = Author(name="",book_id = 1)
-author15 = Author(name="",book_id = 1)
+author1 = Author(name="Erin Morgenstern",books=[books1])
+author2 = Author(name="Alex Michaelides",books=[books2])
+author3 = Author(name="Andy Weir",books=[books3])
+author4 = Author(name="Delia Owens",books=[books4])
+author5 = Author(name="Madeline Miller",books=[books5])
+author6 = Author(name="Taylor Jenkins Reid",books=[books6,books9])
+author7 = Author(name="James Clear",books=[books7])
+author8 = Author(name="TJ Klune",books=[books8])
+author9 = Author(name="Matt Haig",books=[books10])
+author10 = Author(name="Suzanne Collins",books=[books11])
+author11 = Author(name="Stephen King",books=[books12])
+author12 = Author(name="Octavia Butler",books=[books13])
+author13 = Author(name="Sandy Clement",books=[books14])
+author14 = Author(name="Stacia Moffett",books=[books15])
 
+all_authors =[]
+
+genre1=Genre(name=)
 session.add_all([user1,user2,user3,user4,user5,user6,user7,user8,user9,user10,user11,user12
                  ,user13,user14,user15,user16,user17,user18,user19,user20,user21,user22,user23,user24,user25])
 session.commit()
