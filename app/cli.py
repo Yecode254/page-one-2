@@ -38,4 +38,20 @@ def list_reviews_by_users(user_id):
         
         session.close()
 
-def 
+def list_books_by_genre(genre_name):
+    session = Session()
+    genre = session.query(Genre).filter_by(name=genre_name).first()
+
+    if genre:
+        books=genre.books
+        print(f"\nBooks in the Genre '{genre_name}'\n{'-'*40}")
+        for book in books:
+            print(f" - {book.title}")
+        else:
+            print("No books found or invalid genre name.")
+
+        session.close()
+
+def main():
+    print("\nChoose an option:")
+    print("1. List reviews by Book ID")
