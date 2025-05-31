@@ -1,4 +1,4 @@
-from sqlalchemy import Table,Column, Integer, String, ForeignKey
+from sqlalchemy import Table,Column, Integer,Float, String, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
@@ -51,7 +51,7 @@ class Review(Base):
     user_id = Column(Integer,ForeignKey('users.id'))
     book_id = Column(Integer,ForeignKey('books.id'))
     genre_id= Column(Integer,ForeignKey('genres.id'))
-    rating = Column(Integer)
+    rating = Column(Float)
     review = Column(String)
 
     
