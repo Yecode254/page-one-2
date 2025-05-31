@@ -24,4 +24,18 @@ def list_reviews_by_books(book_id):
     session.close()
 
 def list_reviews_by_users(user_id):
-    
+    session= Session()
+    reviews= session.query(Review).filter_by(user_id=user_id).all()
+
+    if reviews:
+        user= session.query(User)(id=user_id).first()
+        print(f"\nReviews by User: {user.name}\n{'-'*40}")
+        for r in reviews:
+            book = session.query(Book).filter_by(id=r.book_id).first()
+            print(f" - {book.title}: Rated {r.rating}/5 - {r.review}")
+        else:
+            print("No reviews found or invalid user ID")
+        
+        session.close()
+
+def 
