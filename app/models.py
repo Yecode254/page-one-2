@@ -19,11 +19,13 @@ class Book (Base):
     title= Column(String, nullable=False)
     user_id = Column(Integer,ForeignKey('users.id'))
     genre_id = Column(Integer,ForeignKey('genres.id'))
+    author_id = Column(Integer,ForeignKey('author.id'))
 
 class Author(Base):
     __tablename__ = 'authors'
     id = Column(Integer,primary_key = True)
     name= Column(String, nullable=False)
+    book_id = Column(Integer,ForeignKey('books.id'))
 
 
 class Genre(Base):

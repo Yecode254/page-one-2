@@ -1,1 +1,75 @@
-from sqlalchemy import 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from models import Base, User, Book, Author, Genre, Review
+
+engine = create_engine('sqlite:///page_1.db')
+Base.metadata.create_all(engine)  
+Session = sessionmaker(bind= engine)
+session = Session()
+
+
+user1 = User(name= "Eddy Yego",age =19,email = "eddieyego273@gmail.com")
+user2 = User(name= "Pennie Shigogodi",age =17,email = "shigogodi254@gmail.com")
+user3 = User(name="Loice Joana",age=20,email="loice23@gmail.com")
+user4 = User(name="Stacy Hoes",age=30,email="hoes35@gmail.com")
+user5 = User(name="Elton John",age=33,email="john22@gmail.com")
+user6 = User(name="Melvin Gal",age=40,email="gal78@gmail.com")
+user7 = User(name="Lee San",age=18,email="san12@gmail.com")
+user8 = User(name="Cobey Jona",age=22,email="cobey17@gmail.com")
+user9 = User(name="Violah Gray",age=44,email="gray67@gmail.com")
+user10 = User(name="Winston Chirchill",age=70,email="win24@gmail.com")
+user11 = User(name="Diana Hills",age=58,email="hill17@gmail.com")
+user12 = User(name="Still Tone",age=49,email="ton19@gmail.com")
+user13 = User(name="Hyper Sing",age=33,email="sing90@gmail.com")
+user14 = User(name="Rondo Hay",age=43,email="hay11@gmail.com")
+user15 = User(name="Monkey.D.Luffy",age=21,email="luffy19@gmail.com")
+user16 = User(name="Garp Still",age=68,email="still20@gmail.com")
+user17 = User(name="Roronoa Zoro",age=63,email="zoro21@gmail.com")
+user18 = User(name="Asta Yen",age=54,email="asta65@gmail.com")
+user19 = User(name="Yuno Yen",age=28,email="yuno55@gmail.com")
+user20= User(name="Crimson Slire",age=35,email="slire203@gmail.com")
+user21 = User(name="San Goku",age=41,email="goku17@gmail.com")
+user22 = User(name="Silvester Snow",age=26,email="snow212@gmail.com")
+user23 = User(name="Dennis Chill",age=88,email="chill15@gmail.com")
+user24 = User(name="Joana King",age=80,email="king190@gmail.com")
+user25 = User(name="Ray Ring",age=24,email="ring77@gmail.com")
+
+all_users=""
+
+books1 = Book(title="The Night Circus",user_id=10,genre_id=10)
+books2 = Book(title="The Silent Patient",user_id=10,genre_id=10)
+books3 = Book(title="Project Hail Mary",user_id=10,genre_id=10)
+books4 = Book(title="Where the Crawdads Sing",user_id=10,genre_id=10)
+books5 = Book(title="Circe",user_id=10,genre_id=10)
+books6 = Book(title="The Seven Husbands of Evelyn Hugo",user_id=10,genre_id=10)
+books7 = Book(title="Atomic Habits",user_id=10,genre_id=10)
+books8 = Book(title="The House in the Cerulean Sea",user_id=10,genre_id=10)
+books9 = Book(title="Daisy Jones & The Six",user_id=10,genre_id=10)
+books10 = Book(title="The Midnight Library",user_id=10,genre_id=10)
+books11 = Book(title="Sunrise on the Reaping",user_id=10,genre_id=10)
+books12 = Book(title="Never Flinch",user_id=10,genre_id=10)
+books13 = Book(title="Parable of the Sower",user_id=10,genre_id=10)
+books14 = Book(title="Kaleidoscope of Secrets",user_id=10,genre_id=10)
+books15 = Book(title="The Missing Girl",user_id=10,genre_id=10)
+
+all_books=""
+
+author1 = Author(name="Erin Morgenstern",book_id = 1)
+author2 = Author(name="Alex Michaelides",book_id = 2)
+author3 = Author(name="Andy Weir",book_id = 3)
+author4 = Author(name="Delia Owens",book_id = 4)
+author5 = Author(name="Madeline Miller",book_id = 5)
+author6 = Author(name="Taylor Jenkins Reid",book_id = 6)
+author7 = Author(name="James Clear",book_id = 7)
+author9 = Author(name="TJ Klune",book_id = 8)
+author10 = Author(name="",book_id = 1)
+author11 = Author(name="",book_id = 1)
+author12 = Author(name="",book_id = 1)
+author13 = Author(name="",book_id = 1)
+author14 = Author(name="",book_id = 1)
+author15 = Author(name="",book_id = 1)
+
+session.add_all([user1,user2,user3,user4,user5,user6,user7,user8,user9,user10,user11,user12
+                 ,user13,user14,user15,user16,user17,user18,user19,user20,user21,user22,user23,user24,user25])
+session.commit()
+print ("seed data added successfully!!!")
