@@ -54,4 +54,23 @@ def list_books_by_genre(genre_name):
 
 def main():
     print("\nChoose an option:")
-    print("1. List reviews by Book ID")
+    print("1.List reviews by Book ID")
+    print("2.List reviews by Users ID")
+    print("3.List books by Genre")
+    choice = input("Enter choice (1, 2, or 3): ")
+
+    if choice =='1':
+        book_id = int(input("Enter Books ID: "))
+        list_reviews_by_books(book_id)
+    elif choice == '2':
+        user_id = int(input("Enter User ID: "))
+        list_reviews_by_users(user_id)
+    elif choice == '3':
+        genre_name = input("Enter Genre Name: ")
+        list_books_by_genre(genre_name)
+    else:
+        print("Invalid choice.")
+
+if __name__ == "__main__":
+    main()
+
