@@ -129,7 +129,7 @@ def main():
 
     
     
-        choice = input("Enter choice (1, 2, 3, 4, 5 or 6): ")
+        choice = input("Enter choice (1, 2, 3, 4, 5, 6, 7 or 8): ")
 
         if choice =='1':
             list_all_books()
