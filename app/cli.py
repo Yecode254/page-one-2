@@ -28,7 +28,7 @@ def list_reviews_by_users(user_id):
     reviews= session.query(Review).filter_by(user_id=user_id).all()
 
     if reviews:
-        user= session.query(User)(id=user_id).first()
+        user = session.query(User).filter_by(id=user_id).first()
         print(f"\nReviews by User: {user.name}\n{'-'*40}")
         for r in reviews:
             book = session.query(Book).filter_by(id=r.book_id).first()
@@ -82,7 +82,7 @@ def main():
     print("1.list all books")
     print("2.List all Reviewers.")
     print("3.List reviews by Book ID")
-    print("4.List reviews by Users ID")
+    print("4.List reviews by Reviewer's ID")
     print("5.List books by Genre")
     
     
