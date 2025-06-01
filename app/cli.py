@@ -78,31 +78,32 @@ def list_all_users():
         print("No reviewers located")
 
 def main():
-    print("\nChoose an option:")
-    print("1.list all books")
-    print("2.List all Reviewers.")
-    print("3.List reviews by Book ID")
-    print("4.List reviews by Reviewer's ID")
-    print("5.List books by Genre")
+    while True:
+        print("\nChoose an option:")
+        print("1.list all books")
+        print("2.List all Reviewers.")
+        print("3.List reviews by Book ID")
+        print("4.List reviews by Reviewer's ID")
+        print("5.List books by Genre")
     
     
-    choice = input("Enter choice (1, 2, 3, 4, or5): ")
+        choice = input("Enter choice (1, 2, 3, 4, or5): ")
 
-    if choice =='1':
-        list_all_books()
-    elif choice =='2':
-        list_all_users()
-    elif choice =='3':
-        book_id = int(input("Enter Books ID: "))
-        list_reviews_by_books(book_id)
-    elif choice == '4':
-        user_id = int(input("Enter User ID: "))
-        list_reviews_by_users(user_id)
-    elif choice == '5':
-        genre_name = input("Enter Genre Name: ")
-        list_books_by_genre(genre_name)
-    else:
-        print("Invalid choice.")
+        if choice =='1':
+            list_all_books()
+        elif choice =='2':
+            list_all_users()
+        elif choice =='3':
+            book_id = int(input("Enter Books ID: "))
+            list_reviews_by_books(book_id)
+        elif choice == '4':
+            user_id = int(input("Enter User ID: "))
+            list_reviews_by_users(user_id)
+        elif choice == '5':
+            genre_name = input("Enter Genre Name: ")
+            list_books_by_genre(genre_name)
+        else:
+            print("Invalid choice.")
 
 if __name__ == "__main__":
     main()
