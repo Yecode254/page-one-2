@@ -52,20 +52,53 @@ def list_books_by_genre(genre_name):
 
         session.close()
 
+def list_all_books():
+    session=Session()
+    books=session.query(Book).all()
+
+    if books:
+        print(f"\nAll Books in Library\n{'-'*40}")
+        for book in books:
+            print(f"-{book.title} (ID:{book.id})")
+    else:
+        print("No books found in the database!")
+    
+    session.close()
+
+def list_all_users():
+    session=Session()
+    users=session.query(User).all()
+        
+    if users:
+        print(f"\nAll Reviwers\n{'-'*40}")
+
+        for user in users:
+                print(f"-{user.name} (Reviewer's ID:{user.id})")
+    else:
+        print("No reviewers located")
+
 def main():
     print("\nChoose an option:")
-    print("1.List reviews by Book ID")
-    print("2.List reviews by Users ID")
-    print("3.List books by Genre")
-    choice = input("Enter choice (1, 2, or 3): ")
+    print("1.list all books")
+    print("2.List all Reviewers.")
+    print("3.List reviews by Book ID")
+    print("4.List reviews by Users ID")
+    print("5.List books by Genre")
+    
+    
+    choice = input("Enter choice (1, 2, 3, 4, or5): ")
 
     if choice =='1':
+        list_all_books()
+    elif choice =='2':
+        list_all_users()
+    elif choice =='3':
         book_id = int(input("Enter Books ID: "))
         list_reviews_by_books(book_id)
-    elif choice == '2':
+    elif choice == '4':
         user_id = int(input("Enter User ID: "))
         list_reviews_by_users(user_id)
-    elif choice == '3':
+    elif choice == '5':
         genre_name = input("Enter Genre Name: ")
         list_books_by_genre(genre_name)
     else:
