@@ -104,13 +104,15 @@ def create_book():
 
 def delete_book():
     session = Session()
-    title = input("Enter book title")
-    user_id = int(input("Enter reviewer's ID:"))
+    book_id = input("Enter book id to delete")
 
-    new_book =Book(title=title,user_id = user_id)
-    session.delete(new_book)
-    session.commit()
-    print(f"Book '{title}' added sucessfully")
+    book =session.query(Book).filter_by(id=book_id).first()
+    if book:
+        session.delete(book)
+        session.commit()
+        print(f"Book ID {book_id} deleted sucessfully")
+    else:
+        print ("invalid Book ID")
     session.close()
 
 
