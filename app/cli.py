@@ -59,7 +59,7 @@ def list_all_books():
     if books:
         print(f"\nAll Books in Library\n{'-'*40}")
         for book in books:
-            print(f"-{book.title} (ID:{book.id})")
+            print(f"-{book.title} ( Book ID:{book.id})")
     else:
         print("No books found in the database!")
     
@@ -76,6 +76,44 @@ def list_all_users():
                 print(f"-{user.name} (Reviewer's ID:{user.id})")
     else:
         print("No reviewers located")
+        
+    session.close()
+
+def all_genres():
+    session=Session()
+    genres= session.query(Genre).all()
+
+    if genres:
+        print (f"\nAll Genres\n{'-'*40}")
+        for genre in genres:
+            print(f"-{genre.name} (Genre ID:{genre.id})")
+    else:
+        print ("Genre not available")
+    session.close()
+
+def create_book():
+    session = Session()
+    title = input("Enter book title")
+    user_id = int(input("Enter reviewer's ID:"))
+
+    new_book =Book(title=title,user_id = user_id)
+    session.add(new_book)
+    session.commit()
+    print(f"Book '{title}' added sucessfully")
+    session.close()
+
+def delete_book():
+    session = Session()
+    title = input("Enter book title")
+    user_id = int(input("Enter reviewer's ID:"))
+
+    new_book =Book(title=title,user_id = user_id)
+    session.delete(new_book)
+    session.commit()
+    print(f"Book '{title}' added sucessfully")
+    session.close()
+
+
 
 def main():
     while True:
@@ -84,10 +122,14 @@ def main():
         print("2.List all Reviewers.")
         print("3.List reviews by Book ID")
         print("4.List reviews by Reviewer's ID")
-        print("5.List books by Genre")
+        print("5.List all genres")
+        print("6.List books by Genre")
+        print("7.Add a Book")
+        print("8.Delete a book")
+
     
     
-        choice = input("Enter choice (1, 2, 3, 4, or5): ")
+        choice = input("Enter choice (1, 2, 3, 4, 5 or 6): ")
 
         if choice =='1':
             list_all_books()
@@ -100,8 +142,14 @@ def main():
             user_id = int(input("Enter User ID: "))
             list_reviews_by_users(user_id)
         elif choice == '5':
+            all_genres()
+        elif choice =='6':
             genre_name = input("Enter Genre Name: ")
             list_books_by_genre(genre_name)
+        elif choice == '7':
+            create_book()
+        elif choice =='8':
+            delete_book()
         else:
             print("Invalid choice.")
 
