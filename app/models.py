@@ -26,8 +26,6 @@ class Book (Base):
     __tablename__ = 'books'
     id = Column(Integer,primary_key = True)
     title= Column(String, nullable=False)
-    user_id = Column(Integer,ForeignKey('users.id'))
-    genre_id = Column(Integer,ForeignKey('genres.id'))
     authors = relationship('Author', secondary=author_book, back_populates='books')
     genres = relationship('Genre', secondary=book_genre, back_populates='books') 
 
